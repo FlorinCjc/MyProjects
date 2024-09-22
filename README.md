@@ -1,0 +1,7 @@
+- 👋 Hi, I’m @Florin Cojocariu
+- 👀 I’m interested in working as Junior Programmer ! :)) just give me the job otherwise i will be mad :(
+- 🌱 I’m currently learning with SDA Academy
+- 💞️ I’m looking to collaborate with other Developers with Java , SQL , Hibernate
+- 📫 How to reach me ? simple Florinncjc@gmail.com is my email
+- 😄 Pronouns: Florin
+-  Here is My GitHub Profile Link  https://github.com/FlorinCjc
