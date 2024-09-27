@@ -1,19 +1,17 @@
 package comGoogle.SocialMediaPlatform;
 
 import java.util.Scanner;
-
 public class Main {
     private static SocialMediaPlatform platform = new SocialMediaPlatform();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        while (true){
             showMainMenu();
             int choice = Integer.parseInt(scanner.nextLine());
-            executeCommand(choice, scanner);
+            executeCommand(choice,scanner);
         }
     }
-
     private static void showMainMenu() {
         System.out.println("1. Register socialmedia.User");
         System.out.println("2. Delete socialmedia.User");
@@ -27,26 +25,24 @@ public class Main {
         System.out.println("10. Exit");
         System.out.print("Enter your choice: ");
     }
-    private static void executeCommand(int choice, Scanner scanner) {
-        switch (choice) {
+    public static void executeCommand(int choice, Scanner scanner){
+        switch (choice){
             case 1:
-                System.out.print("Enter username to register: ");
+                System.out.println("Enter username to register: ");
                 String registerUsername = scanner.nextLine();
-                System.out.print("Enter password: ");
+                System.out.println("Enter password: ");
                 String registerPassword = scanner.nextLine();
-                platform.addUser(registerUsername, registerPassword);
+                platform.addUser(registerUsername,registerPassword);
                 break;
-
             case 2:
-                System.out.print("Enter username to delete: ");
+                System.out.println("Enter username to detele: ");
                 registerUsername = scanner.nextLine();
                 platform.deleteUser(registerUsername);
                 break;
-
             case 3:
-                System.out.print("Enter username to login: ");
+                System.out.println("Enter username to login: ");
                 registerUsername = scanner.nextLine();
-                System.out.print("Enter password: ");
+                System.out.println("Enter password: ");
                 registerPassword = scanner.nextLine();
                 platform.loggedInUser(registerUsername,registerPassword);
                 break;
@@ -56,26 +52,25 @@ public class Main {
                 break;
 
             case 5:
-                if (platform.getLoggedInUser() != null) {// ca sa putem face o postare trebuie sa fim logati altfel nu se poate
+                if(platform.getLoggedInUser() != null){
                     System.out.println("Please add Post ID for your post: ");
                     String postId = scanner.nextLine();
-                    System.out.println("Please add Content for your post: ");
+                    System.out.println("Please add Content for your post:  ");
                     String content = scanner.nextLine();
-                    String author;//ne am salvat stringu autor care este logat acum si il folosim cand facem alt post
-                    author = platform.getLoggedInUser().getUsername(); // am folosit getteri pentru logare si username
-                    platform.addPost(postId, content, author);
-                } else {
+                    String author;
+                    author = platform.getLoggedInUser().getUsername();
+                    platform.addPost(postId,content,author);
+                }else {
                     System.out.println("In order to post, please login!");
                 }
                 break;
-
             case 6:
-                if (platform.getLoggedInUser() != null) {
+                if(platform.getLoggedInUser() != null){
                     System.out.println("Please select Post ID to be deleted: ");
                     String postId = scanner.nextLine();
-                    platform.deletePost(postId);;
-                } else {
-                    System.out.println("In order to delete a post, please login!");
+                    platform.deletePost(postId);
+                }else {
+                    System.out.println("In order to delete a post , please login!");
                 }
                 break;
 
@@ -84,23 +79,20 @@ public class Main {
                 String username = scanner.nextLine();
                 platform.listPostsByUser(username);
                 break;
-
             case 8:
                 System.out.println("Enter username to follow: ");
                 username = scanner.nextLine();
-                if (platform.getLoggedInUser() != null) {
+                if(platform.getLoggedInUser() != null){
                     platform.followUser(platform.getLoggedInUser().getUsername(), username);
                 }
                 break;
-
             case 9:
                 System.out.println("Enter username to unfollow: ");
                 username = scanner.nextLine();
-                if (platform.getLoggedInUser() != null) {
-                    platform.unFollowUser(platform.getLoggedInUser().getUsername(), username);
+                if(platform.getLoggedInUser() != null){
+                    platform.unfollowUser(username);
                 }
                 break;
-
             case 10:
                 System.out.println("Exiting...");
                 System.exit(0);
@@ -109,5 +101,7 @@ public class Main {
                 System.out.println("Invalid choice! Please try again.");
                 break;
         }
+
     }
+
 }

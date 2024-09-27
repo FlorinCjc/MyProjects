@@ -1,7 +1,7 @@
 package comGoogle.SocialMediaPlatform;
 
 public class Post {
-    private String postId; // aici am considerat ca cheia va fi un postid , si obiectul Post , in mapu nostru din socialmedia
+    private String postId;
     private String content;
     private String author;
 
@@ -22,4 +22,5 @@ public class Post {
     public String getAuthor() {
         return author;
     }
+
 }

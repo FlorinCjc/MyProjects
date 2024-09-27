@@ -10,9 +10,8 @@ public class User {
     private String password;
     private boolean loggedIn;
     private List<Integer> postIds;
-    private Set<String> followers; //Set -> nu avem voie sa avem elemente duplicate toate elementele tre sa fie unice
-    // am folosit Set pentru ca vrem ca fiecare Follower sa fie unicat sau sa nu putem adauga 1 follower daca deja este
-    //add cand adaugam un element el va fi la final
+    private Set<String> followers;
+
     public User(String registerUsername, String registerPassword) {
         this.username = registerUsername;
         this.password = registerPassword;
@@ -41,15 +40,14 @@ public class User {
         return followers;
     }
 
-    public void setLoggedIn(boolean loggedIn) {
+    public void setLoggedIn(boolean loggedIn){
         this.loggedIn = loggedIn;
     }
-
-    public void addFollower(String follower) {
+    public void addFollower(String follower){
         followers.add(follower);
-    }
 
-    public void deleteFollower(String follower) {
+    }
+    public void deleteFollower(String follower){
         followers.remove(follower);
     }
 }
